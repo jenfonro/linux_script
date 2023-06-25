@@ -1,6 +1,19 @@
-JDKD=/usr/local
+#!/bin/bash
+echo "请输入要安装的java版本"
+read -p "Please enter the Java version to be installed(17/18): " JDKVER;
+if [ "$JDKVER" == "17" ];then
 JDKURL=https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.tar.gz
-JDKVER=17
+else
+if [ "$JDKVER" == "18" ];then
+JDKURL=https://download.oracle.com/java/18/archive/jdk-18.0.2.1_linux-x64_bin.tar.gz
+else
+echo "Please enter the Java version to be installed"
+echo "请输入要安装的java版本"
+fi
+fi
+JDKD=/usr/local
+
+
 #设定jdk安装目录
 nohup java -version >> /dev/null  2>&1
 if [  $? -eq 0 ]; then
@@ -92,7 +105,7 @@ if [ ! $? -eq 0 ]; then
     echo "============================================"
     echo "jdk安装失败可能的原因："
     echo "Possible causes of jdk installation failure："
-    echo "Downloaded jdk-$JDKVER压缩包损坏"
+    echo "下载的 jdk-$JDKVER压缩包损坏"
     echo "The existing jdk-$JDKVER compressed package is damaged"
 
 else

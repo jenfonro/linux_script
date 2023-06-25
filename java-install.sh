@@ -1,11 +1,11 @@
 #!/bin/bash
 echo "请输入要安装的java版本"
-read -p "Please enter the Java version to be installed(17/18): " JDKVER;
+read -p "Please enter the Java version to be installed(17/20): " JDKVER;
 if [ "$JDKVER" == "17" ];then
 JDKURL=https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.tar.gz
 else
-if [ "$JDKVER" == "18" ];then
-JDKURL=https://download.oracle.com/java/18/archive/jdk-18.0.2.1_linux-x64_bin.tar.gz
+if [ "$JDKVER" == "20" ];then
+JDKURL=https://download.oracle.com/java/20/latest/jdk-20_linux-x64_bin.tar.gz
 else
 echo "Please enter the Java version to be installed"
 echo "请输入要安装的java版本"

@@ -17,9 +17,12 @@ fi
 fi
 echo "是否使用清华的yum软件源(yes/no)"
 read -p "Do you want to use the yum software source from Tsinghua University (yes/no): " yes;
+sudo yum install epel-release
 if [ "$yes" != "yes" ];then
 sudo sed -e 's|^mirrorlist=|#mirrorlist=|g' -e 's|^#baseurl=http://mirror.centos.org/centos|baseurl=https://mirrors.tuna.tsinghua.edu.cn/centos|g' -i.bak /etc/yum.repos.d/CentOS-*.repo
+sudo sed -e 's!^metalink=!#metalink=!g' -e 's!^#baseurl=!baseurl=!g' -e 's!https\?://download\.fedoraproject\.org/pub/epel!https://mirrors.tuna.tsinghua.edu.cn/epel!g' -e 's!https\?://download\.example/pub/epel!https://mirrors.tuna.tsinghua.edu.cn/epel!g' -i /etc/yum.repos.d/epel*.repo
 fi
+
     echo "----------------------------------------"
     echo "开始下载依赖环境"
 	echo "Start downloading dependent environment"

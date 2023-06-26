@@ -1,8 +1,8 @@
 #!/bin/bash
-read -p "请输入服务名称 " NAME;
-read -p "请输入运行的用户 " USERNAME;
-read -p "请输入运行路径" WORKDIR;
-read -p "请输入运行命令" COMMAND;
+read -p "请输入服务名称: " NAME;
+read -p "请输入运行的用户: " USERNAME;
+read -p "请输入运行路径: " WORKDIR;
+read -p "请输入运行命令: " COMMAND;
 
 echo "[Unit]" > /etc/systemd/system/${NAME}.service
 echo "Description=$NAME" >> /etc/systemd/system/${NAME}.service

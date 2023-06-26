@@ -11,15 +11,14 @@ read -p "Detected an existing Python3 environment, do you want to reinstall it (
 if [ "$yes" != "yes" ];then
 exit
 fi
+#先删除之前的配置
+    rm -rf /usr/bin/python3
+    rm -rf /usr/local/bin/pip3.10  /usr/bin/pip3
+fi
 echo "是否使用清华的yum软件源(yes/no)"
 read -p "Do you want to use the yum software source from Tsinghua University (yes/no): " yes;
 if [ "$yes" != "yes" ];then
 sudo sed -e 's|^mirrorlist=|#mirrorlist=|g' -e 's|^#baseurl=http://mirror.centos.org/centos|baseurl=https://mirrors.tuna.tsinghua.edu.cn/centos|g' -i.bak /etc/yum.repos.d/CentOS-*.repo
-fi
-#先删除之前的配置
-    rm -rf /usr/bin/python3
-	rm -rf /usr/local/bin/pip3.10  /usr/bin/pip3
-
 fi
     echo "----------------------------------------"
     echo "开始下载依赖环境"

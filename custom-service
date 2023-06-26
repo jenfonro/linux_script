@@ -17,3 +17,4 @@ echo "Restart=on-failure" >> /etc/systemd/system/${NAME}.service
 echo "" >> /etc/systemd/system/${NAME}.service
 echo "[Install]" >> /etc/systemd/system/${NAME}.service
 echo "WantedBy=multi-user.target" >> /etc/systemd/system/${NAME}.service
+systemctl daemon-reload

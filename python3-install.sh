@@ -10,7 +10,7 @@ echo "检测到已有Python3环境，是否重新安装(yes/no)"
 read -p "Detected an existing Python3 environment, do you want to reinstall it (yes/no): " yes;
 if [ "$yes" != "yes" ];then
 exit
-else
+fi
 echo "是否使用清华的yum软件源(yes/no)"
 read -p "Do you want to use the yum software source from Tsinghua University (yes/no): " yes;
 if [ "$yes" != "yes" ];then
@@ -19,7 +19,7 @@ fi
 #先删除之前的配置
     rm -rf /usr/bin/python3
 	rm -rf /usr/local/bin/pip3.10  /usr/bin/pip3
-fi
+
 fi
     echo "----------------------------------------"
     echo "开始下载依赖环境"
@@ -50,7 +50,7 @@ fi
 echo "开始编译安装"
 echo "Start compiling and installing"
 	rm -rf /tmp/python3/$FILENAME
-	JDKFILENAME=$(ls /tmp/python3/)
+	FILENAME=$(ls /tmp/python3/)
 	cd /tmp/python3/$FILENAME
 # 编译主要需要注意的问题是设置编译FLAG，以便使用最新的openssl库。 "----------------------------------------"
 export CFLAGS=$(pkg-config --cflags openssl11)

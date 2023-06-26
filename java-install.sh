@@ -85,6 +85,7 @@ echo "----------------------------------------"
 echo "检测配置是否成功"
 echo "Check if the configuration was successful"
 echo "----------------------------------------"
+sleep 2s
 source /etc/profile
 nohup java -version >> /dev/null  2>&1
 if [ ! $? -eq 0 ]; then

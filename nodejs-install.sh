@@ -12,11 +12,9 @@ fi
 echo "请输入要安装的${BASENAME}版本的下载链接"
 read -p "默认版本：18.16.1 ：" VERSION;
 if [ "$VERSION" == "" ];then
-DOWNLOADURL=https://nodejs.org/dist/v18.16.1/node-v18.16.1-linux-x64.tar.xz
-else
-DOWNLOADURL=${VERSION}
+VERSION=18.16.1
 fi
-
+DOWNLOADURL=https://nodejs.org/dist/v${VERSION}/node-v${VERSION}-linux-x64.tar.xz
 
 #设定安装目录
 DIR=/usr/local
